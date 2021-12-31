@@ -1,17 +1,20 @@
 #include<iostream>
-#define MAX_STACK_SIZE 100
+#include<cstdlib>
 
 using std::cout;
 using std::cin;
 
 typedef int element;
 typedef struct {
-    element data[MAX_STACK_SIZE];
+    element* data;
+    int capacity;
     int top;
 } StackType;
 
 void init_stack(StackType *s) {
     s->top = -1;
+    s->capacity = 1;
+    s->data = (element*)malloc(s->capacity * sizeof(element));
 }
 
 int is_empty(StackType *s) {
@@ -19,17 +22,15 @@ int is_empty(StackType *s) {
 }
 
 int is_full(StackType *s) {
-    return (s->top >= (MAX_STACK_SIZE - 1));
+    return (s->top >= (s->capacity - 1));
 }
 
 void push(StackType *s, element item) {
     if (is_full(s)) {
-        fprintf(stderr, "overflow");
-        return;
+        s->capacity *= 2;
+        s->data = (element*)realloc(s->data, s->capacity * sizeof(element));
     }
-    else {
-        s->data[++(s->top)] = item;
-    }
+    s->data[++(s->top)] = item;
 }
 
 element pop(StackType *s) {
@@ -64,4 +65,7 @@ int main() {
     for (int i = 0; i < 3; i++) {
         cout << pop(&s) << "\n";
     }
+
+    free(s.data);
+    return 0;
 }
