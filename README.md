@@ -1,3 +1,5 @@
-# algorithm-practice
+# computer-science-study
 
-BOJ
+- data structure
+- algorithm
+- BOJ
