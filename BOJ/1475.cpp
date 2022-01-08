@@ -1,21 +1,28 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
+int digit[10];
+
 int main() {
-    int N;
+    string N;
     cin >> N;
+    int len = N.length();
+    for (int i = 0; i < len; i++) {
+        digit[N[i] = '0']++;
+    }
 
-    /*
-    0 1 2 3 4 5 6 9 8 7
-    6과 9는 서로 뒤집어서 이용 가능
-    */
+    int sixNnine = (digit[6] + digit[9] + 1) / 2;
+    digit[6] = sixNnine;
+    digit[9] = sixNnine;
 
-   int digit = 1;
-   while ((N / 10) != 0){
-       digit++;
-       N /= 10;
-   }
+    int M = 0;
+    for (int i = 0; i < 10; i++) {
+        if (digit[M] < digit[i]) {
+            M = i;
+        }
+    }
 
-   cout << digit;
+    cout << digit[M] << "\n";
 }
