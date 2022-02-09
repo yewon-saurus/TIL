@@ -1,4 +1,4 @@
-const n = require("fs").readFileSync('input.txt').toString().split('');
+const input = require("fs").readFileSync('input.txt').toString().split('');
 
 let avg = 0;
 

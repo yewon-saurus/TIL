@@ -1,4 +1,4 @@
-const n = require("fs").readFileSync('input.txt').toString().split('');
+const input = require("fs").readFileSync('input.txt').toString().split('');
 
 const a = input[0];
 const b = input[1];
