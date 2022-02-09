@@ -1,4 +1,4 @@
-const n = require('fs').readFileSync('./jejuCoding/input14.txt').toString().split('\n');
+const n = require("fs").readFileSync('input.txt').toString().split('');
 
 if (n[0] % 3 == 0) {
     console.log('짝');

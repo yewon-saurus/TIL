@@ -1,4 +1,4 @@
-const input = require('fs').readFileSync('./jejuCoding/input16.txt').toString().split('');
+const n = require("fs").readFileSync('input.txt').toString().split('');
 
 // for (let i = 2; i >= 0; i--) {
 //     process.stdout.write(input[i]);
