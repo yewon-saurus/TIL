@@ -1,4 +1,4 @@
-const tall = require("fs").readFileSync('input.txt').toString().split('');
+const tall = require("fs").readFileSync('input.txt').toString().split('\n');
 
 if (tall[0] >= 150) {
     console.log('YES');
