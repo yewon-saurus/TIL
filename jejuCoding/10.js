@@ -1,4 +1,4 @@
-const n = require("fs").readFileSync('./jejuCoding/input10.txt').toString().split('');
+const n = require("fs").readFileSync('input.txt').toString().split('');
 
 let tree = '';
 
