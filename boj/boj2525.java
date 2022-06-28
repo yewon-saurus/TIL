@@ -2,13 +2,12 @@ package boj;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class boj2525 {
-    public static void main(String[] args) throws IOException {
+    public void sol() throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); // 앞으로 br, bw는 세트로 생각하겠어요
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -35,5 +34,9 @@ public class boj2525 {
         bw.write(String.valueOf(" "));
         bw.write(String.valueOf(s));
         bw.flush();
+    }
+
+    public static void main(String[] args) throws Exception {
+        new boj2525().sol();
     }
 }
