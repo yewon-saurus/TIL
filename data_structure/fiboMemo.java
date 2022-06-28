@@ -26,5 +26,7 @@ public class fiboMemo {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         System.out.println("F(" + n + ") = " + fibonacci(n));
+
+        sc.close();
     }
 }
