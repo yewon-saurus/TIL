@@ -15,22 +15,19 @@ public class boj2941 {
 		int cnt = 0;
  
 		for (int i = 0; i < input.length(); i++) {
- 
-			char ch = input.charAt(i);
- 
-			if(ch == 'c' && i < input.length() - 1) {
+			if(input.charAt(i) == 'c' && i < input.length() - 1) {
 				if(input.charAt(i + 1) == '=' || input.charAt(i + 1) == '-') i++;		
 			}
-			else if(ch == 'd' && i < input.length() - 1) {
+			else if(input.charAt(i) == 'd' && i < input.length() - 1) {
 				if(input.charAt(i + 1) == '-') i++;
 				else if(input.charAt(i + 1) == 'z' && i < input.length() - 2) {
 					if(input.charAt(i + 2) == '=') i += 2;
 				}
 			}
-			else if((ch == 'l' || ch == 'n') && i < input.length() - 1) {
+			else if((input.charAt(i) == 'l' || input.charAt(i) == 'n') && i < input.length() - 1) {
 				if(input.charAt(i + 1) == 'j') i++;
 			}
-			else if((ch == 's' || ch == 'z') && i < input.length() - 1) {
+			else if((input.charAt(i) == 's' || input.charAt(i) == 'z') && i < input.length() - 1) {
 				if(input.charAt(i + 1) == '=') i++;
 		    }
 			cnt++;
