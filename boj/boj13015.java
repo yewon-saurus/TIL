@@ -62,7 +62,7 @@ public class boj13015 {
                     }
                     bw.write("*");
                 }
-                else {
+                else if (i == n) {
                     for (j = 1; j <= i - 1; j++) {
                         bw.write(" ");
                     }
