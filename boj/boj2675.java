@@ -1,4 +1,4 @@
-package boj;
+package BOJ;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,10 +17,10 @@ public class boj2675 {
         int r;
         String s;
         String[] temp;
-        
+
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            
+
             r = Integer.parseInt(st.nextToken());
             s = st.nextToken();
 

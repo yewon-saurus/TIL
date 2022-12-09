@@ -1,4 +1,4 @@
-package boj;
+package BOJ;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -21,8 +21,7 @@ public class boj2908 {
 
         if (reversA > reversB) {
             bw.write(String.valueOf(reversA));
-        }
-        else {
+        } else {
             bw.write(String.valueOf(reversB));
         }
 

@@ -1,4 +1,4 @@
-package boj;
+package BOJ;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -14,19 +14,18 @@ public class boj10870 {
         int n = Integer.parseInt(br.readLine());
 
         n = fibo(n);
-        
+
         bw.write(String.valueOf(n));
         bw.flush();
     }
+
     public static int fibo(int n) {
         int result;
         if (n == 0) {
             result = 0;
-        }
-        else if (n == 1) {
+        } else if (n == 1) {
             result = 1;
-        }
-        else {
+        } else {
             result = fibo(n - 1) + fibo(n - 2);
         }
         return result;

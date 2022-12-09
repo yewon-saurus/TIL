@@ -1,4 +1,4 @@
-package boj;
+package BOJ;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,7 +18,7 @@ public class boj10757 {
         BigInteger b = new BigInteger(st.nextToken());
 
         a = a.add(b);
-        
+
         bw.write(String.valueOf(a));
         bw.flush();
     }

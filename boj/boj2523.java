@@ -1,4 +1,4 @@
-package boj;
+package BOJ;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,8 +18,7 @@ public class boj2523 {
                 for (int j = 1; j <= i; j++) {
                     bw.write("*");
                 }
-            }
-            else {
+            } else {
                 for (int j = 1; j <= n - (i % n); j++) {
                     bw.write("*");
                 }

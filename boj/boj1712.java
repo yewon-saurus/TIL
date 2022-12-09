@@ -1,4 +1,4 @@
-package boj;
+package BOJ;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,8 +19,7 @@ public class boj1712 {
 
         if (C <= B) {
             bw.write(String.valueOf(-1));
-        }
-        else {
+        } else {
             bw.write(String.valueOf((A / (C - B)) + 1));
         }
 

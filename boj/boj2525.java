@@ -1,4 +1,4 @@
-package boj;
+package BOJ;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -29,7 +29,8 @@ public class boj2525 {
         }
 
         // System.out.println(m + " " + s); -> 느립니다.. bw로 대체 할거예요
-        // bw.write(String.valueOf(m + " " + s)); -> String에 대한 '+' 연산 자체가 느리다.. 빠른 출력을 쓰는 의미 퇴색
+        // bw.write(String.valueOf(m + " " + s)); -> String에 대한 '+' 연산 자체가 느리다.. 빠른 출력을
+        // 쓰는 의미 퇴색
         bw.write(String.valueOf(m));
         bw.write(String.valueOf(" "));
         bw.write(String.valueOf(s));

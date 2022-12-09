@@ -1,4 +1,4 @@
-package boj;
+package BOJ;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,21 +20,18 @@ public class boj10996 {
                     if (j % 2 == 1) {
                         // 홀수 번째
                         bw.write("*");
-                    }
-                    else if (j % 2 == 0) {
+                    } else if (j % 2 == 0) {
                         // 짝수 번째
                         bw.write(" ");
                     }
                 }
-            }
-            else if (i % 2 == 0) {
+            } else if (i % 2 == 0) {
                 // 짝수 번째
                 for (int j = 1; j <= n; j++) {
                     if (j % 2 == 1) {
                         // 홀수 번째
                         bw.write(" ");
-                    }
-                    else if (j % 2 == 0) {
+                    } else if (j % 2 == 0) {
                         // 짝수 번째
                         bw.write("*");
                     }

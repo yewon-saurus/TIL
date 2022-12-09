@@ -1,4 +1,4 @@
-package boj;
+package BOJ;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,8 +24,7 @@ public class boj13015 {
                 for (j = 1; j <= n; j++) {
                     bw.write("*");
                 }
-            }
-            else { // 그 외, 기둥을 만드는 부분
+            } else { // 그 외, 기둥을 만드는 부분
                 if (i < n) {
                     for (j = 1; j <= i - 1; j++) {
                         bw.write(" ");
@@ -61,8 +60,7 @@ public class boj13015 {
                         bw.write(" ");
                     }
                     bw.write("*");
-                }
-                else if (i == n) {
+                } else if (i == n) {
                     for (j = 1; j <= i - 1; j++) {
                         bw.write(" ");
                     }

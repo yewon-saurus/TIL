@@ -1,4 +1,4 @@
-package boj;
+package BOJ;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -23,11 +23,9 @@ public class boj10872 {
         int result;
         if (n == 0) {
             result = 1;
-        }
-        else if (n == 1) {
+        } else if (n == 1) {
             result = 1;
-        }
-        else {
+        } else {
             result = n * facto(n - 1);
         }
         return result;
