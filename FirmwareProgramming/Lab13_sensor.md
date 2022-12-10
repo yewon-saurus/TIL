@@ -135,9 +135,7 @@ void loop()
 {
   // trigger pulse
   if (tick == 1) {
-    delayMicroseconds(2);
     digitalWrite(trigPin, HIGH); // Pulse for 10μs to trigger ultrasonic detection
-    delayMicroseconds(10);
     digitalWrite(trigPin, LOW);
 
     tick = 0;
