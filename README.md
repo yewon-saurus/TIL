@@ -8,10 +8,14 @@
 
 - [블로그](https://velog.io/@yewon0804)는 따로 있습니다..
 
-# 🧩 분류
+# 🌻 분류
 
 - Data Structures
 
 - Algorithm
 
 - Baekjoon Online Judge
+
+- AI
+
+- Firmware Programming
