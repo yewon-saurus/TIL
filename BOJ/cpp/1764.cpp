@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -11,25 +12,26 @@ int main() {
     cin >> n >> m;
 
     string tmp;
-    vector<string> v;
+    vector<string> v, answer;
 
-    vector<string> answer;
-    int cnt = 0;
-    for (int i = 0; i < n + m; i++) {
+    for (int i = 0; i < n; i++) {
         cin >> tmp;
-
-        for (int j = 0; j < i; j++) {
-            if (tmp == v[j]) {
-                cnt++;
-                answer.emplace_back(tmp);
-                continue;
-            }
-        }
         v.emplace_back(tmp);
     }
 
-    cout << cnt << '\n';
-    for (int i = 0; i < cnt; i++) {
+    sort(v.begin(), v.end());
+
+    for (int i = 0; i < m; i++) {
+        cin >> tmp;
+        if (binary_search(v.begin(), v.end(), tmp)) {
+            answer.emplace_back(tmp);
+        }
+    }
+
+    sort(answer.begin(), answer.end()); // 다시 정렬(안 하면 틀렸습니다 뜸)
+
+    cout << answer.size() << '\n';
+    for (int i = 0; i < answer.size(); i++) {
         cout << answer[i] << '\n';
     }
 }
