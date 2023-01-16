@@ -1,11 +1,9 @@
 # BOJ
 
-- YYMMDD_docs_name.md
+- /docs
 
-- /cpp
+    - YYMMDD_docs_name.md
 
-    - C++로 BOJ 문제 풀이 중..
+- /YYYY_MM
 
-- /old_java
-
-    - 과거에 `JAVA`로 BOJ 문제 풀이를 시도해봤던 흔적
+    - 문제번호.cpp
