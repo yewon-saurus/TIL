@@ -18,7 +18,7 @@
 
 - Algorithm
 
-- Baekjoon Online Judge
+- Coding Test
 
 - AI
 
