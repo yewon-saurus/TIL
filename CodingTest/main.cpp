@@ -1,29 +1,30 @@
 #include <iostream>
-#include <set>
+#include <algorithm>
 using namespace std;
 
-// 서로 다른 부분 문자열의 개수
-// 11478 - S3
-// https://www.acmicpc.net/problem/11478
+// 최소공배수
+// 1934 - B1
+// https://www.acmicpc.net/problem/1874
+
+int GCD(int a, int b) {
+    if (b == 0) return a;
+    else return GCD(b, a % b);
+}
 
 int main() {
     cin.tie(NULL);
     cin.sync_with_stdio(false);
 
-    string S;
-    cin >> S;
+    int T;
+    cin >> T;
 
-    set<string> set;
+    for (int i = 0; i < T; i++) {
+        int a, b, max;
+        cin >> a >> b;
+        max = GCD(a, b);
 
-    string tmp;
-    for (int i = 0; i < S.length(); i++) {
-        tmp = "";
-        for (int j = i; j < S.length(); j++) {
-            tmp += S[j];
-            set.insert(tmp);
-        }
+        cout << a * b / max << '\n';
     }
 
-    cout << set.size();
     return 0;
 }
