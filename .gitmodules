@@ -1,3 +1,6 @@
 [submodule "PublicDataAPI/PublicDataAPI/Study-Public-Data-API"]
 	path = PublicDataAPI/PublicDataAPI/Study-Public-Data-API
 	url = https://github.com/yewon0804/Study-Public-Data-API
+[submodule "Flask/Study-Flask"]
+	path = Flask/Study-Flask
+	url = https://github.com/yewon0804/Study-Flask.git
