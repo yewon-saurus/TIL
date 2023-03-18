@@ -14,6 +14,8 @@
 
     - 분류가 아직 지정되지 않은 임시 문서들을 저장해 둔 곳입니다..
 
+- Algotithm
+
 - Coding Test
 
 - AI
