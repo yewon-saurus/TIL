@@ -6,7 +6,7 @@
 
 관련 태그: `#Web API`
 
-## [📖 Submodule: Study-Public-Data-API](https://github.com/yewon0804/Study-Public-Data-API/blob/master/README.md)
+## [📖 실습 기록: Study-Public-Data-API](https://github.com/yewon0804/Study-Public-Data-API/blob/master/README.md)
 
 # 진도표
 

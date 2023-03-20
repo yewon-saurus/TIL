@@ -4,6 +4,8 @@
 
 - 생활코딩 강의 중, 웹 프레임워크 Flask에 대한 수업을 수강하고 기록합니다..
 
+## [📖 실습 기록: Study-Flask](https://github.com/yewon0804/Study-Public-Data-API/blob/master/README.md)
+
 - Flask란?
 
 >
