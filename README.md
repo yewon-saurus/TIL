@@ -8,6 +8,8 @@
 
 - [블로그](https://velog.io/@yewon0804)는 따로 있습니다..
 
+- 아래 분류는 디렉토리의 사전순이 아닌, 추가된 순서로 배열되어 있는 것입니다..
+
 # 🌻 분류
 
 - Classification Not Yet
@@ -27,3 +29,5 @@
 - Public Data API
 
     - 🔗 [공공 데이터 (오픈 데이터) API 제대로 배우기 Part.1 :: 인프런](https://www.inflearn.com/course/%EA%B3%B5%EA%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0-api-1#reviews)
+
+- Android
