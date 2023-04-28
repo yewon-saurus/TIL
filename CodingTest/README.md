@@ -4,7 +4,7 @@
 
 - YYMMDD_docs_name.md
 
-- main.cpp
+- Main.java
 
     - 코딩을 해보는 공간입니다..
 
