@@ -2,7 +2,6 @@
 
 - https://slides.com/woongjae/deck-8
 - https://slides.com/woongjae/deck-8-14
-- https://slides.com/woongjae/deck-8-15
 
 🔗[TypeScript Guidebook](https://yamoo9.gitbook.io/typescript/introduction)
 
@@ -117,3 +116,78 @@ JavaScript의 기본 자료형을 포함합니다. (superset)
 - object의 property가 없을 때도 undefined 입니다.
 
 - 런타임에서 typeof 연산자를 이용해서 알아내면, undefined 입니다.
+
+# var, let, const
+
+- var
+
+    - ES5
+
+    - 변수의 유효 범위: 함수 스코프
+
+    - 재선언 가능
+
+- let, const
+
+    - ES6
+
+    - 변수의 유효 범위: 블록 스코프(친숙)
+
+    - 재선언 불가
+
+음.. 그리고 var 보다는 let, const를 쓰나보죠?
+
+
+잠깐! 갑자기 알아본 지식
+
+- 호이스팅
+
+    - 호이스팅이 뭐였죠?.. 인터프리터가 변수와 함수의 메모리 공간을 선언 전에 미리 할당하는 것을 의미.. 코드가 실행하기 전 변수선언/함수선언이 해당 스코프의 최상단으로 끌어 올려진 것 같은 현상.. 자바스크립트 함수는 실행되기 전에 함수 안에 필요한 변수값들을 모두 모아서 유효 범위의 최상단에 선언한다..
+
+    - 🔗[자바스크립트의 호이스팅 :: velog](https://velog.io/@eassy/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85)
+
+# Type assertions
+
+형변환과는 다른 개념인데요
+
+형변환은 실제 데이터 구조를 바꿔주는 녀석이라면?
+
+타입 어설션은 '타입이 이것이다'라고 컴파일러에게 알려주는 것을 의미
+
+그래서 행동에 대해서 작성자가 100% 신뢰하는 것이 중요합니다.
+
+```ts
+let somValue: any = "this is a String";
+
+let strLength: number = (<string>someValue).length;
+let strLength: number = (someValue as string).length;
+```
+
+음..
+
+assertion 이라는게
+
+프로그램의 특정 지점에 위치한 어썰션은, 해당 지점에서 개발자가 반드시 참(true)이어야 한다고 생각하는 사항을 표현한 논리식이다.
+
+# Type alias
+
+타입 별칭(별명)
+
+인터페이스랑 비슷해 보입니다..
+
+기타 직접 작성해야하는 타입을 다른 이름으로 지정할 수 있습니다?
+
+만들어진 타입의 refer로 사용하는 것이지, 타입을 만드는 것은 아닙니다
+
+```ts
+type MyStringType = string;
+
+const str = 'World';
+
+let myStr: MyStringType = 'hello';
+
+myStr = str;
+```
+
+..?
+
