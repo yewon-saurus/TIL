@@ -28,6 +28,4 @@
 
 - Public Data API
 
-    - 🔗 [공공 데이터 (오픈 데이터) API 제대로 배우기 Part.1 :: 인프런](https://www.inflearn.com/course/%EA%B3%B5%EA%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0-api-1#reviews)
-
 - Android
