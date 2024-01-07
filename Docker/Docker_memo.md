@@ -8,12 +8,12 @@ docker desktop을 통해 django:latest Image를 다운 받았고,
 프로젝트 폴더에서
 
 ```bash
-docker run -d --name aivle -v $(pwd):/home -p 8000:8000 -t django:latest bash
+docker run -d --name aivle -v $(pwd):/app -p 8000:8000 -t django:latest bash
 ```
 
 했습니다.
 
-- `-v $(pwd):/home`: 현재 디렉토리를 컨테이너 내의 `/home` 디렉토리로 마운트
+- `-v $(pwd):/app`: 현재 디렉토리를 컨테이너 내의 `/app` 디렉토리로 마운트
 
 - `-p 8000:8000`: 호스트의 8000번 포트와 컨테이너의 8000번 포트를 매핑
 
