@@ -90,6 +90,16 @@ function ExampleWithManyStates() {
 
         - Hook을 호출할 수 있는 곳이 딱 한 군데 더 있는데요.. 바로 직접 작성한 custom Hook 내 입니다
 
+## 검색해볼래요 - 키워드 정리
+
+- useEffect, clean-up function
+- useContext
+- ❔ useReducer, dispatch
+- useMemo
+- useCallback
+- useRef
+- custom hook
+
 # References
 
 🔗[Hook의 개요 :: reactjs.org](https://ko.reactjs.org/docs/hooks-intro.html)
