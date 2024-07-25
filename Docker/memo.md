@@ -4,7 +4,6 @@
 
 docker desktop을 통해 django:latest Image를 다운 받았고,
 
-
 프로젝트 폴더에서
 
 ```bash

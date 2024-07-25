@@ -1,10 +1,20 @@
+# Numpy
+
 ```
 import numpy as np
 ```
 
-# Numpy 기초
+```jsx
+~ 목차 ~
+```
 
-## 배열 만들기
+- [배열 만들기](#배열-만들기)
+- [조건 조회](#조건-조회)
+- [배열 연산](#배열-연산)
+- [배열 집계](#배열-집계)
+- [자주 사용되는 함수들 - np.argmax(), np.argmin(), np.where](#자주-사용되는-함수들---npargmax-npargmin-npwhere)
+
+# 배열 만들기
 
 ```
 np.array()
@@ -24,34 +34,34 @@ b2 = np.array(a2)
 # 3차원도 마찬가지겠죠?
 ```
 
-### 배열 정보 확인
+## 배열 정보 확인
 
 - 차원 확인
 - 형태(크기) 확인
 - 요소 자료형 확인
 
-#### 차원 확인
+### 차원 확인
 
 ```
 print(b1.ndim) # 1
 print(b2.ndim) # 2
 ```
 
-#### 형태(크기) 확인
+### 형태(크기) 확인
 
 ```
 print(b1.shape) # (5, )
 print(b2.shape) # (2, 3)
 ```
 
-#### 요소 자료형 확인
+### 요소 자료형 확인
 
 ```
 print(b1.dtype)
 print(b2.dtype)
 ```
 
-### Reshape
+## Reshape
 
 ```
 a = np.array(
@@ -66,7 +76,7 @@ b = a.reshape(3, 2)
 c = a.reshape(1. -1) # 아~ 얘도 -1 이용해서 이런식으로 할 수 있군
 ```
 
-## 배열 인덱싱과 슬라이싱
+# 배열 인덱싱과 슬라이싱
 
 ```
 a = np.array([
@@ -83,7 +93,7 @@ print(a[0:2]) # [[1 2 3]
 print(a[0, 0:2]) # [1 2]
 ```
 
-## 조건 조회
+# 조건 조회
 
 - 조건에 맞는 요소를 선택
 
@@ -103,7 +113,7 @@ print(score[condition])
 print(score[(score >= 90) & (score <= 95)])
 ```
 
-## 배열 연산
+# 배열 연산
 
 - 더하기, 빼기, 곱하기, 나누기
 - 행렬 곱, 행렬 합(여기선 우선 생략)
@@ -130,7 +140,7 @@ print(x ** y)
 print(np.power(x, y))
 ```
 
-## 배열 집계
+# 배열 집계
 
 ```
 a = np.array([1, 5, 7,], [2, 3, 8,])
@@ -145,7 +155,7 @@ print(np.sum(a, axis=0)) # [3 8 15]
 print(np.sum(a, axis=1)) # [13 13]
 ```
 
-## 자주 사용되는 함수들 - np.argmax(), np.argmin(), np.where
+# 자주 사용되는 함수들 - np.argmax(), np.argmin(), np.where
 
 - 최대값의 **인덱스**
 
