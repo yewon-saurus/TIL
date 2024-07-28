@@ -5,6 +5,7 @@
 - [CDD(Component Driven Development)](#cddcomponent-driven-development)
 - [Client Side Rendering, Server Side Rendering](#client-side-rendering-server-side-rendering)
 - [Custom Hook](#custom-hook)
+- [hooks VS utils.. 어떻게 캡슐화할까?](#hooks-vs-utils-어떻게-캡슐화할까)
 - [Next.js](#nextjs)
 - [Portal](#portal)
 - [React의 장점](#react의-장점)
@@ -92,3 +93,8 @@
 
 - 리액트 포탈은 “부모 컴포넌트의 DOM 계층 구조 바깥에 있는 DOM node”로, 자식을 렌더링하는 방법 중 하나입니다.
 - (리액트 포탈을 사용하는 이유?) 리액트는 부모 컴포넌트가 렌더링 되면, 자식 컴포넌트도 렌더링 되는 Tree 구조로 구성되어 있습니다. 이런 Tree 구조는, 부모-자식 관계를 가지고 있다보니 **DOM 계층 구조에 영향**을 미치게 됩니다. 하지만 리액트 포탈을 사용하면, **독립적인 위치에서 렌더링하기 때문에 편리하게 사용 가능**하다는 특징이 있습니다. 대표적인 예로, 스타일링을 간편히 할 수 있습니다. 즉, 리액트 포탈을 사용하면 스타일링을 간편하게 사용 가능하고, 이런 독립된 스타일링은 유지보수성을 향상시키고 CSS 충돌을 방지하는 효과로 이어집니다.
+
+# hooks VS utils.. 어떻게 캡슐화할까?
+
+- React 애플리케이션에서 코드를 어떻게 캡슐화할지 정하는 것은 프로젝트의 구조와 유지보수에 중요한 영향을 미칩니다. `hook`와 `util` 폴더를 구분하여 사용하는 것은 좋은 접근 방식이며, 각각의 목적과 사용 사례를 명확히 하면 더 효율적으로 코드를 관리할 수 있습니다.
+- 'React의 상태 관리와 사이드 이펙트 관리에 관련된 로직', 'React 컴포넌트 lifecycle에 의존하는 로직을 포함하는 로직'은 Custom Hook으로 만듭니다. 반대로, 'React와 무관한 순수 함수 또는 일반적인 유틸리티 함수', '데이터 처리, 형식 변환, 공통 연산 등을 수행하는 함수'이자 'React 컴포넌트 lifecycle에 의존하지 않는 로직'은 util로 만듭니다.
