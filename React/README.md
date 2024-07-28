@@ -1,8 +1,6 @@
 # React
 
-```jsx
-~ 목차 ~
-```
+## 목차
 
 - [CDD(Component Driven Development)](#cddcomponent-driven-development)
 - [Client Side Rendering, Server Side Rendering](#client-side-rendering-server-side-rendering)

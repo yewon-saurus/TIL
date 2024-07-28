@@ -1,8 +1,6 @@
 # JavaScript
 
-```jsx
-~ 목차 ~
-```
+## 목차
 
 - [Babel](#babel)
 - [Browser Web API](#browser-web-api)

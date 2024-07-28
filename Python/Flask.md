@@ -11,9 +11,7 @@ Django 대비 이해하기 쉬운 사용방법으로 인해서
 - Create, Read, Update, Delete는 정보기술의 바탕이 되는 작업들입니다.
 - 리다이렉션은 웹브라우저를 강제로 다른 페이지로 이동하는 수단입니다.
 
-```jsx
-~ 목차 ~
-```
+## 목차
 
 - [Routing](#routing)
 - [Read](#read)
