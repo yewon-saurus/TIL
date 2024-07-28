@@ -13,6 +13,7 @@
 - [JS 동작 원리](#js-동작-원리)
 - [Polyfill](#polyfill)
 - [Promise](#promise)
+- [Reflow](#Reflow)
 - [TDZ(Temporal Dead Zone)](#tdztemporal-dead-zone)
 - [렌더링 엔진 동작 과정](#렌더링-엔진-동작-과정)
 - [호이스팅(Hoisting)](#호이스팅hoisting)
@@ -81,4 +82,13 @@
 - Temporal Dead Zone은 직역하자면 '일시적인 사각지대'로, '변수의 선언과, 변수의 초기화 사이, 변수에 접근날 수 없는 지점'을 말합니다. 즉, 초기화되지 않은 변수가 있는 곳을 TDZ라고 하는 것입니다.
 - 자바스크립트에서 변수는 기본적으로 '선언 단계', '초기화 단계', '할당 단계'를 거쳐 생성이 됩니다. 가령, let과 const는 선언과 초기화를 따로 진행합니다. 선언 시 TDZ가 있다는 것인데, 이 경우 호이스팅은 되지만 참조할 메모리가 없어, 참조하려고 하면 참조 오류가 발생하게 됩니다. TDZ에 대한 개념을 이해하고 있다면, let과 const 등 TDZ가 존재하는 선언부를 사용할 때, 참조 오류 발생 등 여러 부작용을 방지할 수 있을 것입니다.
 
-# Intersection Observer
+# Reflow
+
+- reflow는 레이아웃 계산을 다시 하는 것으로, reflow가 발생하면 repaint는 필연적으로 발생합니다. reflow는 HTML 요소들의 위치와 크기를 다시 계산해야 하기 때문에, repaint에 비해 시간이 오래 걸립니다. 변경하려는 위치와 크기뿐만 아니라, 연관된 다른 요소들의 위치와 크기까지 재계산해야 하기 때문입니다. 따라서, **개발자는 reflow가 자주 발생하도록 하는 코드는 지양해야 합니다**.
+- (repaint: 재결합 된 렌더 트리를 기반으로 다시 화면에 paint하는 것)
+- reflow를 최소화 하기 위한 방법으로는 이런 방법을 생각할 수 있습니다. '가급적 레이아웃 변경'을 피하는 것입니다. 가령, width와 height 등의 기하학적인 속성의 변경은 reflow가 발생하게 됩니다. 따라서 꼭 필요한 경우가 아니면 width, height 등 기하학적 속성의 변경은 피하는 것이 좋습니다. 피하기 어렵다면, `transform`를 사용하거나, `visibility, display`보다는 `opacity`를 사용하는 것이 성능 개선에 더욱 도움이 된다고 합니다.
+
+# Intersection Observer API
+
+- Intersection Observer API는 직역하자면 '교차 관찰자 API'로, '브라우저 뷰포트'와 원하는 '요소'의 **교차점**을 관찰하며, 요소가 뷰포트에 포함되는지 아닌지 구별하는 기능을 제공합니다. 즉, 특정 요소가 사용자 화면에 보이는지 여부를 판단하는 것입니다. 이 intersectin observer는 **비동기적**으로 실행되기 때문에, 메인 스레드에 영향을 주지 않으면서 요소들의 변경사항들을 관찰할 수 있습니다. (nice ^^) 따라서, 이를 이용하면 `scroll` 등 이벤트 기반의 요소 관찰에서 발생하는 렌더링 성능이나 이벤트 연속 호출의 문제를 해결할 수 있습니다. 또한, `IntersectionObserverEntry`의 속성을 활용하여 요소들의 위치를 알 수 있기 때문에, **리플로우 현상을 방지**할 수 있습니다.
+- lazy loading, infinite-scroll 구현 등에 intersection observer를 사용할 수 있습니다.
