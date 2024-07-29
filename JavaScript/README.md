@@ -12,6 +12,7 @@
 - [Polyfill](#polyfill)
 - [Promise](#promise)
 - [Reflow](#Reflow)
+- [scroll VS wheel (event)](#scroll-vs-wheel-event)
 - [TDZ(Temporal Dead Zone)](#tdztemporal-dead-zone)
 - [렌더링 엔진 동작 과정](#렌더링-엔진-동작-과정)
 - [호이스팅(Hoisting)](#호이스팅hoisting)
@@ -90,3 +91,7 @@
 
 - Intersection Observer API는 직역하자면 '교차 관찰자 API'로, '브라우저 뷰포트'와 원하는 '요소'의 **교차점**을 관찰하며, 요소가 뷰포트에 포함되는지 아닌지 구별하는 기능을 제공합니다. 즉, 특정 요소가 사용자 화면에 보이는지 여부를 판단하는 것입니다. 이 intersectin observer는 **비동기적**으로 실행되기 때문에, 메인 스레드에 영향을 주지 않으면서 요소들의 변경사항들을 관찰할 수 있습니다. (nice ^^) 따라서, 이를 이용하면 `scroll` 등 이벤트 기반의 요소 관찰에서 발생하는 렌더링 성능이나 이벤트 연속 호출의 문제를 해결할 수 있습니다. 또한, `IntersectionObserverEntry`의 속성을 활용하여 요소들의 위치를 알 수 있기 때문에, **리플로우 현상을 방지**할 수 있습니다.
 - lazy loading, infinite-scroll 구현 등에 intersection observer를 사용할 수 있습니다.
+
+# scroll VS wheel (event)
+
+- scroll 이벤트와 wheel 이벤트는 모두 '사용자가 페이지를 스크롤할 때 발생'하지만, 각각의 용도와 작동 방식에는 차이가 있습니다. 먼저, scroll은 '사용자가 페이지를 스크롤할 때 발생'합니다. 사용자가 마우스 휠을 돌리거나, 터치 스크린에서 스와이프하거나, 키보드로 스크롤 할 때도 발생합니다. 이에 반해, wheel은 '사용자가 마우스 휠을 돌릴 때만 발생'합니다. 즉, 터치 스크린에서 스와이프하거나, 키보드로 스크롤할 때는 발생하지 않습니다. wheel의 이벤트 객체는 delta X, Y, Z 속성을 포함해 스크롤 방향과 양을 나타내며, 이벤트 핸들러를 통해 스크롤 동작을 직접 제어하거나, 스크롤 속도를 조절할 수 있습니다. (scroll 이벤트 객체에는 스크롤 위치에 대한 정보가 포함되지 않습니다.)
