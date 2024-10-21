@@ -168,3 +168,156 @@ remove 100:<br />
 <br />
 remove 3:<br />
 1 -> 4 -> 2<br />
+
+## Heap
+
+### MaxHeap
+
+```jsx
+class MaxHeap {
+    constructor() {
+        this.heap = [];
+    }
+
+    push(value) {
+        this.heap.push(value);
+
+        var curr = this.heap.length - 1;
+        var parent = Math.floor(curr / 2);
+
+        while (this.heap[curr] > this.heap[parent]) {
+            const temp = this.heap[curr];
+            this.heap[curr] = this.heap[parent];
+            this.heap[parent] = temp;
+
+            curr = parent;
+            parent = Math.floor(curr / 2);
+        }
+    }
+
+    pop() {
+        const maxValue = this.heap[0];
+        this.heap[0] = this.heap[this.heap.length - 1];
+        this.heap.pop();
+
+        if (!maxValue) return "heap이 비어 있습니다.";
+
+        var curr = 0;
+        var left = 1;
+        var right = 2;
+
+        while (this.heap[curr] < this.heap[left] || this.heap[curr] < this.heap[right]) {
+            if (this.heap[left] < this.heap[right]) {
+                const temp = this.heap[right];
+                this.heap[right] = this.heap[curr];
+                this.heap[curr] = temp;
+
+                curr = right;
+            }
+            else {
+                const temp = this.heap[left];
+                this.heap[left] = this.heap[curr];
+                this.heap[curr] = temp;
+
+                curr = left;
+            }
+
+            left = curr * 2 + 1;
+            right = curr * 2 + 2;
+        }
+
+        return maxValue;
+    }
+
+    size() {
+        return this.heap.length;
+    }
+
+    display() {
+        console.log(this.heap);
+    }
+}
+```
+
+```jsx
+const maxHeap = new MaxHeap();
+
+console.log(maxHeap.pop());
+
+maxHeap.push(3);
+maxHeap.display();
+maxHeap.push(2);
+maxHeap.display();
+maxHeap.push(6);
+maxHeap.display();
+
+maxHeap.push(11);
+maxHeap.push(1);
+maxHeap.push(122);
+maxHeap.display();
+
+console.log(maxHeap.pop());
+maxHeap.display();
+console.log(maxHeap.pop());
+maxHeap.display();
+console.log(maxHeap.pop());
+maxHeap.display();
+console.log(maxHeap.pop());
+maxHeap.display();
+console.log(maxHeap.pop());
+maxHeap.display();
+console.log(maxHeap.pop());
+maxHeap.display();
+console.log(maxHeap.pop());
+maxHeap.display();
+```
+
+>heap이 비어 있습니다.<br />
+[ 3 ]<br />
+[ 3, 2 ]<br />
+[ 6, 3, 2 ]<br />
+[ 122, 11, 6, 3, 1, 2 ]<br />
+122<br />
+[ 11, 2, 6, 3, 1 ]<br />
+11<br />
+[ 6, 2, 1, 3 ]<br />
+6<br />
+[ 3, 2, 1 ]<br />
+3<br />
+[ 2, 1 ]<br />
+2<br />
+[ 1 ]<br />
+1<br />
+[]<br />
+heap이 비어 있습니다.<br />
+[]<br />
+
+```jsx
+const arr = [192, 12, 123, 1, 24, 12312, 34, 3];
+const sortedArr = [];
+
+const maxHeap = new MaxHeap();
+
+for (item of arr) {
+    maxHeap.push(item);
+}
+
+maxHeap.display();
+while (maxHeap.size() > 0) {
+    sortedArr.push(maxHeap.pop());
+    maxHeap.display();
+}
+
+console.log(sortedArr);
+```
+
+>[ 12312, 192, 123, 34, 12, 24, 1, 3 ]<br />
+[ 192, 34, 123, 3, 12, 24, 1 ]<br />
+[ 123, 34, 24, 3, 12, 1 ]<br />
+[ 34, 12, 24, 3, 1 ]<br />
+[ 24, 12, 1, 3 ]<br />
+[ 12, 3, 1 ]<br />
+[ 3, 1 ]<br />
+[ 1 ]<br />
+[]<br />
+[ 12312, 192, 123, 34,  24,  12, 3, 1 ]
