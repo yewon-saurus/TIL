@@ -321,3 +321,67 @@ console.log(sortedArr);
 [ 1 ]<br />
 []<br />
 [ 12312, 192, 123, 34,  24,  12, 3, 1 ]
+
+## Trie
+
+```jsx
+class Node {
+    constructor(value="") {
+        this.value = value;
+        this.children = new Map();
+    }
+}
+
+class Trie {
+    constructor() {
+        this.root = new Node();
+    }
+
+    insert(string) {
+        let currNode = this.root;
+
+        for (const char of string) {
+            if (!currNode.children.has(char)) {
+                currNode.children.set(
+                    char,
+                    new Node(currNode.value + char)
+                );
+            }
+
+            currNode = currNode.children.get(char);
+        }
+    }
+
+    has(string) {
+        let currNode = this.root;
+
+        for (const char of string) {
+            if (!currNode.children.has(char)) return false;
+            currNode = currNode.children.get(char);
+        }
+
+        return true;
+    }
+}
+
+const trie = new Trie();
+
+trie.insert("cat");
+trie.insert("can");
+
+console.log(trie.has("cat"));
+console.log(trie.has("c"));
+console.log(trie.has("can"));
+console.log(trie.has("con"));
+console.log(trie.has("t"));
+
+trie.insert("toto");
+console.log(trie.has("t"));
+```
+
+>true<br />
+true<br />
+true<br />
+false<br />
+false<br />
+true<br />
