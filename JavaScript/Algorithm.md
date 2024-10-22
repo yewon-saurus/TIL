@@ -105,7 +105,7 @@ class LinkedList {
     }
 
     remove(value) {
-        var prevNode = this.head;
+        let prevNode = this.head;
 
         while (prevNode.next.value !== value) prevNode = prevNode.next;
 
@@ -113,7 +113,7 @@ class LinkedList {
     }
 
     find(value) {
-        var currNode = this.head;
+        let currNode = this.head;
 
         while (currNode.value !== value) currNode = currNode.next;
 
@@ -125,7 +125,7 @@ class LinkedList {
     }
 
     display() {
-        var currNode = this.head;
+        let currNode = this.head;
         const result = [];
 
         while (currNode !== null) {
@@ -182,8 +182,8 @@ class MaxHeap {
     push(value) {
         this.heap.push(value);
 
-        var curr = this.heap.length - 1;
-        var parent = Math.floor(curr / 2);
+        let curr = this.heap.length - 1;
+        let parent = Math.floor(curr / 2);
 
         while (this.heap[curr] > this.heap[parent]) {
             const temp = this.heap[curr];
@@ -202,9 +202,9 @@ class MaxHeap {
 
         if (!maxValue) return "heap이 비어 있습니다.";
 
-        var curr = 0;
-        var left = 1;
-        var right = 2;
+        let curr = 0;
+        let left = 1;
+        let right = 2;
 
         while (this.heap[curr] < this.heap[left] || this.heap[curr] < this.heap[right]) {
             if (this.heap[left] < this.heap[right]) {
