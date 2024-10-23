@@ -385,3 +385,32 @@ true<br />
 false<br />
 false<br />
 true<br />
+
+## 에라토스테네스의 체
+
+```jsx
+const getPrimes = (n) => {
+    let primeTable = [false, false, ...new Array(n - 1).fill(true)];
+
+    for (let i = 2; i <= n; i++) {
+        if (primeTable[i]) {
+            for (let j = i * 2; j <= n; j += i) {
+                primeTable[j] = false;
+            }
+        }
+    }
+
+    return primeTable;
+}
+
+console.log(getPrimes(10));
+console.log(getPrimes(10).filter(Boolean).length);
+```
+
+>[<br />
+&emsp;false, false, trumarme,<br />
+&emsp;true,  false, true,<br />
+&emsp;false, true,  false,<br />
+&emsp;false, false<br />
+]<br />
+4<br />
