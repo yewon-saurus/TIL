@@ -414,3 +414,60 @@ console.log(getPrimes(10).filter(Boolean).length);
 &emsp;false, false<br />
 ]<br />
 4<br />
+
+## 순열
+
+```jsx
+const getPermutations = (arr, n) => {
+    const result = [];
+
+    if (n === 1) return arr.map(v => [v]);
+
+    arr.forEach((fixed, index, origin) => {
+        const rest = [...origin.slice(0, index), ...origin.slice(index + 1)];
+        const subPermutations = getPermutations(rest, n - 1); // fixed가 이미 1개를 차지 했으므로, n - 1개만 뽑으면 된다
+        const attached = subPermutations.map(item => [fixed, ...item]);
+        result.push(...attached);
+    });
+
+    return result
+}
+
+console.log(getPermutations([1, 2, 3], 2));
+console.log(getPermutations([1, 2, 3], 2).length);
+```
+
+>[<br />
+&emsp;[ 1, 2, 3 ],<br />
+&emsp;[ 1, 3, 2 ],<br />
+&emsp;[ 2, 1, 3 ],<br />
+&emsp;[ 2, 3, 1 ],<br />
+&emsp;[ 3, 1, 2 ],<br />
+&emsp;[ 3, 2, 1 ]<br />
+]<br />
+6
+
+## 조합
+
+```jsx
+const getCombinations = (arr, n) => {
+    const result = [];
+
+    if (n === 1) return arr.map(v => [v]);
+
+    arr.forEach((fixed, index, origin) => {
+        const rest = origin.slice(index + 1);
+        const subCombinations = getCombinations(rest, n - 1);
+        const attached = subCombinations.map(item => [fixed, ...item]);
+        result.push(...attached);
+    });
+
+    return result;
+}
+
+console.log(getCombinations([1, 2, 3], 2));
+console.log(getCombinations([1, 2, 3, 4, 5, 6, 7], 3).length);
+```
+
+>[ [ 1, 2 ], [ 1, 3 ], [ 2, 3 ] ]<br />
+35
