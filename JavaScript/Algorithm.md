@@ -171,70 +171,66 @@ remove 3:<br />
 
 ## Heap
 
-### MaxHeap
+### MinHeap
 
 ```jsx
-class MaxHeap {
+class MinHeap {
     constructor() {
         this.heap = [];
     }
-
-    push(value) {
-        this.heap.push(value);
-
-        let curr = this.heap.length - 1;
-        let parent = Math.floor(curr / 2);
-
-        while (this.heap[curr] > this.heap[parent]) {
-            const temp = this.heap[curr];
-            this.heap[curr] = this.heap[parent];
-            this.heap[parent] = temp;
-
-            curr = parent;
-            parent = Math.floor(curr / 2);
-        }
-    }
-
-    pop() {
-        const maxValue = this.heap[0];
-        this.heap[0] = this.heap[this.heap.length - 1];
-        this.heap.pop();
-
-        if (!maxValue) return "heap이 비어 있습니다.";
-
-        let curr = 0;
-        let left = 1;
-        let right = 2;
-
-        while (this.heap[curr] < this.heap[left] || this.heap[curr] < this.heap[right]) {
-            if (this.heap[left] < this.heap[right]) {
-                const temp = this.heap[right];
-                this.heap[right] = this.heap[curr];
-                this.heap[curr] = temp;
-
-                curr = right;
-            }
-            else {
-                const temp = this.heap[left];
-                this.heap[left] = this.heap[curr];
-                this.heap[curr] = temp;
-
-                curr = left;
-            }
-
-            left = curr * 2 + 1;
-            right = curr * 2 + 2;
-        }
-
-        return maxValue;
-    }
-
+    
     size() {
         return this.heap.length;
     }
-
-    display() {
-        console.log(this.heap);
+    
+    push(value) {
+        this.heap.push(value);
+        
+        let curIndex = this.heap.length - 1;
+        let parIndex = Math.floor((curIndex - 1) / 2);
+        
+        while (curIndex > 0 && this.heap[curIndex] < this.heap[parIndex]) {
+            // 부모 자식 교환
+            [this.heap[parIndex], this.heap[curIndex]] = [this.heap[curIndex], this.heap[parIndex]];
+            
+            curIndex = parIndex;
+            parIndex = Math.floor((curIndex - 1) / 2);
+        }
+    }
+    
+    pop() {
+        if (this.size() === 0) return null;
+        if (this.size() === 1) return this.heap.pop();
+        
+        const min = this.heap[0];
+        this.heap[0] = this.heap.pop();
+        
+        let curIndex = 0;
+        let left = 1;
+        let right = 2;
+        
+        while (
+            this.heap[curIndex] > this.heap[left] || this.heap[curIndex] > this.heap[right]
+        ) {
+            if (this.heap[left] > this.heap[right]) {
+                // 오른쪽 자식과 교환
+                [this.heap[right], this.heap[curIndex]] = [this.heap[curIndex], this.heap[right]];
+                curIndex = right;
+            }
+            else {
+                // 왼쪽 자식과 교환
+                [this.heap[left], this.heap[curIndex]] = [this.heap[curIndex], this.heap[left]];
+                curIndex = left;
+            }
+            left = curIndex * 2 + 1;
+            right = curIndex * 2 + 2;
+        }
+        
+        return min;
+    }
+    
+    peek() {
+        return this.heap[0];
     }
 }
 ```
