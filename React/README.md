@@ -5,6 +5,7 @@
 - [CDD(Component Driven Development)](#cddcomponent-driven-development)
 - [Client Side Rendering, Server Side Rendering](#client-side-rendering-server-side-rendering)
 - [Custom Hook](#custom-hook)
+- [Flux 패턴](#flux-패턴)
 - [hooks VS utils.. 어떻게 캡슐화할까?](#hooks-vs-utils-어떻게-캡슐화할까)
 - [Next.js](#nextjs)
 - [Portal](#portal)
@@ -101,3 +102,9 @@
 
 - React 애플리케이션에서 코드를 어떻게 캡슐화할지 정하는 것은 프로젝트의 구조와 유지보수에 중요한 영향을 미칩니다. `hook`와 `util` 폴더를 구분하여 사용하는 것은 좋은 접근 방식이며, 각각의 목적과 사용 사례를 명확히 하면 더 효율적으로 코드를 관리할 수 있습니다.
 - 'React의 상태 관리와 사이드 이펙트 관리에 관련된 로직', 'React 컴포넌트 lifecycle에 의존하는 로직을 포함하는 로직'은 Custom Hook으로 만듭니다. 반대로, 'React와 무관한 순수 함수 또는 일반적인 유틸리티 함수', '데이터 처리, 형식 변환, 공통 연산 등을 수행하는 함수'이자 'React 컴포넌트 lifecycle에 의존하지 않는 로직'은 util로 만듭니다.
+
+# Flux 패턴
+
+- Flux 패턴이란, 클라이언트 단에서 웹 애플리케이션의 데이터 흐름을 단방향으로 관리할 수 있게 고안된 디자인 패턴입니다. Flux 패턴은 페이스북에서 발표한.. 아키텍처인데, 당시 페이스북은 기본에 보편적으로 사용되던 MVC 패턴에서 어떤 문제를 느꼈습니다. 문제인즉슨, 데이터가 양방향으로 흐르게 되는 MVC 특성 상, Model의 개수가 많아질 수록, 각 Model에서 발생한 이벤트의 영향을 예측하기가 점점 힘들어 진다는 것이었습니다. 즉, 대규모 애플리케이션에서 데이터 흐름을 일관성 있게 관리함으로써, 애플리케이션의 예측 가능성을 높이기 위해 고안한 것입니다.
+- 어떻게 이 데이터 흐름을 단방향으로 정립을 했냐, 라는 부분을 보자면, Action, Store, Dispatcher를 알아야 합니다. Action이란 '데이터를 변경하는 행위'로서 Dispatcher에 전달되는 객체를 말합니다. Action 객체는 '타입'과 '전송되는 데이터'를 담고 있습니다. Store는 상태 저장소로서, '상태'와 '상태를 변경할 수 있는 메서드'를 가지고 있습니다. 어떤 타입의 Action이 발생했는지에 따라 그에 맞는 데이터 변경을 수행하는 콜백 함수를 Dispatcher에 등록합니다. Dispatcher는 '데이터의 흐름을 관리하는 중앙 허브'입니다. Dispatcher에는 Store가 가지고 있는 '각 Action 타입에 대응되는 콜백 함수'에 대한 정보가 존재합니다. Action을 감지하면 Store가 그 타입에 맞는 콜백 함수를 실행하도록 Dispatcher가 제어하는 것입니다. 이런 흐름으로 인해서, Store의 데이터를 조작하는 것은 오직 Dispatcher를 통해서만 가능합니다. 이것이 Flux 패턴의 핵심입니다.
+- 상태에 변경이 발생하면 Store가 View에게 알려주고, 새로운 상태를 받은 View가 화면을 리렌더링 하게 되면, 우리가 보는 어떤.. 리액트 컴포넌트에 반영이 되는 것입니다. 또한 사용자가 View를 통한 조작으로도 Action을 생성할 수 있어, 사용자의 입력에 따른 상태 변경에도 동일한 방식의 단방향 데이터 흐름을 거치게 되고, 이로 인해서 예외 없이 데이터를 처리할 수 있게 되었습니다.
